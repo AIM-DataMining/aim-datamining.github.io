@@ -15,6 +15,9 @@ deploy:
   target_branch: master # GitHub pages branch to deploy to (in other cases it can be gh-pages)
   provider: pages
   skip_cleanup: true
+  keep_history: true
   github_token: $GITHUB_TOKEN # This is the authentication which you will setup in the next step in travis-ci dashboard
   email: oliver@fesseler.info
   name: "Oliver Fesseler"
+  on: 
+    branch: hugo
