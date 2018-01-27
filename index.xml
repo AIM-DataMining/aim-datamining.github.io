@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HappyDay - Emotion recognition</title>
+    <link>https://aim-datamining.github.io/</link>
+    <description>Recent content on HappyDay - Emotion recognition</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 27 Jan 2018 18:07:21 +0100</lastBuildDate>
+    
+	<atom:link href="https://aim-datamining.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Andriod App</title>
+      <link>https://aim-datamining.github.io/getting_started/app/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aim-datamining.github.io/getting_started/app/</guid>
+      <description>Happy-Day Android-App HappyDay is the frontend to the HappyDay project. The app has been created because it allows to collect as much training data as possible for the neural networks. Every cool programmer is in possession of an Android smartphone and can download the app. Be it on the way or cosy at home in front of the TV: You get the mobile phone out, start the app and take some pictures.</description>
+    </item>
+    
+    <item>
+      <title>Live evaluation</title>
+      <link>https://aim-datamining.github.io/getting_started/live/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aim-datamining.github.io/getting_started/live/</guid>
+      <description>happy-day-live Allows live evaluation on the PC via webcam. The application can be used to train different networks and evaluate the result directly with a webcam. The live evaluation can be found in the github repository happyday-day-live. The evironment of the live evaluation is based on Emotion Recognition using DNN project.
+Requirements Anaconda in the 32 bit version is used as runtime environment.
+There are dependencies to the following modules that must be installed before use:</description>
+    </item>
+    
+    <item>
+      <title>Web Service</title>
+      <link>https://aim-datamining.github.io/getting_started/service/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://aim-datamining.github.io/getting_started/service/</guid>
+      <description>happy-day-service With make all the scripts also starts an instance of the created docker container. It listens on port 80, so keep in mind that you need the rights to listen on this port. Otherwise change the port in the Makefile.
+# clones happy-day-service repository git clone git@github.com:ofesseler/happy-day-service.git # builds new containers from scratch make all  If you want to be able to store the images on a webdav endpoint, you have to define the environment variables DAV_USER and DAV_PASSWORD.</description>
+    </item>
+    
+  </channel>
+</rss>

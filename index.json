@@ -1,0 +1,64 @@
+[
+{
+	"uri": "https://aim-datamining.github.io/getting_started/app/",
+	"title": "Andriod App",
+	"tags": [],
+	"description": "",
+	"content": " Happy-Day Android-App HappyDay is the frontend to the HappyDay project. The app has been created because it allows to collect as much training data as possible for the neural networks. Every cool programmer is in possession of an Android smartphone and can download the app. Be it on the way or cosy at home in front of the TV: You get the mobile phone out, start the app and take some pictures.\n\nDependency  Android Smartphone with Camera Android Version \u0026gt;= 5.0 (Lollipop) Internet Connection  Third Party Components  CameraFragment  App Funktional To make it quick and easy to take pictures with the app, the camera has been integrated into the app directly via theCameraFragment. Thus, the images do not have to be retrieved via Intent from standard camera apps.\nThe app works as shown in the figure.\nWhen a photo has been taken, the face is recognized and cropped using vision tools from the Android SDK. This reduces unnecessary overhead because the background usually contains no information about the emotions.\nFunctions Labeling Now you can label the emotion on the photo and send it to the cloud to extend our trainings data by hitting the Cloud-Uplode button. The date is send over http to our Server.\nEvaluation To test the emotions classification, the image can also be sent to the server without labeling by clicking on the tensorflow button. Then the image is classified by the CNNs in the server and sends the result back to the app.\n"
+},
+{
+	"uri": "https://aim-datamining.github.io/getting_started/",
+	"title": "Getting Started",
+	"tags": [],
+	"description": "",
+	"content": "This sections explains how to get an instance of Happy Day up and running in only a few steps. To train one/all of the CNNs take a look into the documentation.\n"
+},
+{
+	"uri": "https://aim-datamining.github.io/getting_started/live/",
+	"title": "Live evaluation",
+	"tags": [],
+	"description": "",
+	"content": " happy-day-live Allows live evaluation on the PC via webcam. The application can be used to train different networks and evaluate the result directly with a webcam. The live evaluation can be found in the github repository happyday-day-live. The evironment of the live evaluation is based on Emotion Recognition using DNN project.\nRequirements Anaconda in the 32 bit version is used as runtime environment.\nThere are dependencies to the following modules that must be installed before use:\n numpy 1.13.3 opencv 3.3.1 tensorflow 1.4.0 h5py 2.7.1 Pillow 4.3.0  Available models In the live evaluation you can choose between 3 different networks:\n Self CNN: A adapted model with an moderate complexity based on the literature. Fast CNN: A model with an reduced complexity for an fast learning process based on the SelfCNN. Optimized CNN: A model with an high complexity. Takes a long time for training due to a lot of optimations.  How to train a model? In main directory of the repository the folder \u0026ldquo;data\u0026rdquo; and the subfolders \u0026ldquo;train\u0026rdquo; and \u0026ldquo;test\u0026rdquo; must be created. The folder \u0026ldquo;train\u0026rdquo; should include all images which are used for training the network. The folder \u0026ldquo;test\u0026rdquo; should include all images which are used for validation. Suitable images can be downloaded from the Kaggel Facial Expression Recognition Challenge. The images used should only contain the face of the person and not its body. After that the data can be used for training.\nTraining the data:\ntrain \u0026lt;filename\u0026gt; \u0026lt;CNN to use values between the 3 models 1-3\u0026gt;  Example:\npython Test train myModel 3 python Test train mySecondModel 2  How to test a model? The trained models can be testet by using the name of the model and the id of the used network. For test purpose one trained model with the name optimizedModel based on the Optimized CNN is added for direct testing.\nTest the trained model:\ntestloop \u0026lt;filename\u0026gt; \u0026lt;CNN to use values between the 3 models 1-3\u0026gt;  Example:\npython Test testloop optimizedModel 3 python Test testloop mySecondModel 2  "
+},
+{
+	"uri": "https://aim-datamining.github.io/getting_started/service/",
+	"title": "Web Service",
+	"tags": [],
+	"description": "",
+	"content": " happy-day-service With make all the scripts also starts an instance of the created docker container. It listens on port 80, so keep in mind that you need the rights to listen on this port. Otherwise change the port in the Makefile.\n# clones happy-day-service repository git clone git@github.com:ofesseler/happy-day-service.git # builds new containers from scratch make all  If you want to be able to store the images on a webdav endpoint, you have to define the environment variables DAV_USER and DAV_PASSWORD. Otherwise you can\u0026rsquo;t store data for retraining and collecting without issues.\nRequirements  Python 3.x Tensorflow 1.4 Keras 2.x pip docker (optional)  For further requirements take a look into requirements.txt\nTraining To train a new model, one can easily download the Dataset from a Kaggle Challenge \u0026ldquo;Facial Expression Recognition\u0026rdquo;. The other option is to generate the data yourself and take a lot of photos from your friends. We had about 5000 photos of 15-20 Friends and it helped a lot to improve the modell.\nDo the following steps to start training the self-cnn model\n# change into happyday folder cd happy-day-service/happyday # preprocess data for scaling, folder structure, ... python data_processing.py -s \u0026quot;/source/path\u0026quot; -d \u0026quot;/destination/path\u0026quot; # train model python self_nn.py --path \u0026quot;/destination/path\u0026quot;  Then your machine will work a while and eventually show you the results. You can modify the parameters in the self_cnn.py file itself.\n"
+},
+{
+	"uri": "https://aim-datamining.github.io/api_reference/",
+	"title": "Web API Reference",
+	"tags": [],
+	"description": "",
+	"content": " GET / Gibt den String Hello World!\\n zurück.\nGET /images/ lists all images in dir.\nGET /images/\u0026lt;sentiment\u0026gt; lists all images in dir \u0026lt;sentiment\u0026gt; only \u0026ldquo;sad\u0026rdquo; and \u0026ldquo;smile\u0026rdquo; are available\nGET /self-test/\u0026lt;sentiment\u0026gt; tests models with predefined image. \u0026lt;sentiment\u0026gt; can be one of: - sad - smile - neutral\nPOST /test/ receives a file and moves it to webdav destination, and later for testing\nPOST /self-test/\u0026lt;sentiment\u0026gt; performs a test prediction with a image from the given sentiment (sad, smile, neutral)\nPOST /train/\u0026lt;sentiment\u0026gt; receives a file and moves it to webdav destination, and later for training One of: (sad, smile, sleep, kiss, neutral, angry, surprised) Then it gets uploaded to the specified remote webdav. In our case https://schrolm.de\nPOST /retrain/\u0026lt;sentiment\u0026gt; NOT YET IMPLEMENTED, empty endpoint. Returns always {\u0026quot;ok\u0026quot;: true} retrains a file for given sentiment (sad or smile)\n"
+},
+{
+	"uri": "https://aim-datamining.github.io/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": " Happy Day Happy Day is the result of a project at Esslingen University of Applied Science. Our goal of the project was to learn how CNNs work and how to integrate them into an application. Our vision of an application was to detect a users emotion by capturing a portrait of the user and send this very portrait to our server, where we are evaluating the images about their inhabitited emotions.\nHappy Day consists of three repositories:\n happy-day-app: Android app source code happy-day-service: Flask webservice and CNN training cli happy-day-live: Sources for live evaluation with your webcam, to show transitions between emotions  "
+},
+{
+	"uri": "https://aim-datamining.github.io/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://aim-datamining.github.io/credits/",
+	"title": "Credits",
+	"tags": [],
+	"description": "",
+	"content": " Credits Thanks to all our supporters to give away their faces for our purpose.\n"
+},
+{
+	"uri": "https://aim-datamining.github.io/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]

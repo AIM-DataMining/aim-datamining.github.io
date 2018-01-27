@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://aim-datamining.github.io/getting_started/app/</loc>
+    <lastmod>2018-01-27T18:07:21+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aim-datamining.github.io/getting_started/</loc>
+    <lastmod>2018-01-27T18:07:21+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aim-datamining.github.io/getting_started/live/</loc>
+    <lastmod>2018-01-27T18:07:21+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aim-datamining.github.io/getting_started/service/</loc>
+    <lastmod>2018-01-27T18:07:21+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aim-datamining.github.io/api_reference/</loc>
+    <lastmod>2018-01-27T18:07:21+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aim-datamining.github.io/</loc>
+    <lastmod>2018-01-27T18:07:21+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aim-datamining.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://aim-datamining.github.io/credits/</loc>
+    <lastmod>2018-01-22T00:41:25+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://aim-datamining.github.io/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
